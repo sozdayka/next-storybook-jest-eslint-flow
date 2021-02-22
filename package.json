@@ -1,0 +1,55 @@
+{
+  "name": "catapult-web-nextjs",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "next": "^10.0.7",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "lint-1": "npx eslint .",
+    "lint-2": "npx eslint src",
+    "start": "next start",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "test": "jest",
+    "lint:changes": "LIST=`git diff-index --name-only HEAD | grep -E '.(js|jsx)$';`; if [[ $LIST ]]; then eslint $LIST; fi",
+    "lint:fix-changes": "LIST=`git diff-index --name-only HEAD | grep -E '.(js|jsx)$';`; if [[ $LIST ]]; then eslint $LIST --fix; fi",
+    "lint:fix-all": "eslint src --ext .js --ext .jsx --fix",
+    "lint": "eslint src --ext .js --ext .jsx"
+  },
+  "pre-commit": [
+    "flow",
+    "lint:changes"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.12.17",
+    "@storybook/addon-actions": "^6.1.18",
+    "@storybook/addon-links": "^6.1.18",
+    "@storybook/addons": "^6.1.18",
+    "@storybook/react": "^6.1.18",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "^8.2.2",
+    "enzyme": "^3.11.0",
+    "eslint": "^7.20.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-standard": "^4.1.0",
+    "flow-bin": "0.122.0",
+    "jest": "^26.6.3",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test": "^0.7.3",
+    "renderer": "^0.1.5"
+  }
+}
